@@ -1,4 +1,6 @@
-<button (click)="showPresidents()" mat-raised-button color="primary">Show Presidents</button>
+<div class="buttons">
+    <button (click)="showPresidents()" mat-raised-button color="primary">Show Presidents</button>
+</div>
 
 <div *ngIf="presidents">
     <ul *ngFor="let president of presidents">
