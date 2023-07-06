@@ -10,20 +10,19 @@ namespace api.Controllers;
 [Route("api/[controller]")]
 public class VoteController : ControllerBase
 {
-    private readonly IMongoCollection<Vote> _collectionVote;
-    private readonly IMongoCollection<President> _collectionPresident;
+    private readonly IMongoCollection<Vote> _collection;
+
     // Dependency Injection
     public VoteController(IMongoClient client, IMongoDbSettings dbSettings)
     {
         var dbName = client.GetDatabase(dbSettings.DatabaseName);
-        _collectionVote = dbName.GetCollection<Vote>("votes");
-        _collectionPresident = dbName.GetCollection<President>("presidents");
+        _collection = dbName.GetCollection<Vote>("votes");
     }
 
     [HttpPost("add")]
     public ActionResult<Vote> Create(Vote userInput)
     {
-        bool hasDocs = _collectionVote.AsQueryable().Where<Vote>(v => v.NationalCode == userInput.NationalCode).Any();
+        bool hasDocs = _collection.AsQueryable().Where<Vote>(v => v.NationalCode == userInput.NationalCode).Any();
 
         if(hasDocs)
             return BadRequest($"The National Code {userInput.NationalCode} has already voted.");
@@ -44,7 +43,7 @@ public class VoteController : ControllerBase
             SelectedPresidentId: userInput.SelectedPresidentId
         );
 
-        _collectionVote.InsertOne(vote);
+        _collection.InsertOne(vote);
 
         return vote;
     }
@@ -52,7 +51,7 @@ public class VoteController : ControllerBase
     [HttpGet("get-all")]
     public ActionResult<IEnumerable<Vote>> GetAll()
     {
-        List<Vote> votes = _collectionVote.Find<Vote>(new BsonDocument()).ToList();
+        List<Vote> votes = _collection.Find<Vote>(new BsonDocument()).ToList();
 
         if(!votes.Any())
             return NoContent();
@@ -63,7 +62,7 @@ public class VoteController : ControllerBase
     [HttpGet("get-president-votes-by-id/{id}")]
     public ActionResult<IEnumerable<Vote>> GetPresidentVotes(string id)
     {
-        List<Vote> presidentVotes = _collectionVote.Find(v => v.SelectedPresidentId == id).ToList();
+        List<Vote> presidentVotes = _collection.Find(v => v.SelectedPresidentId == id).ToList();
 
         if(!presidentVotes.Any())
             return NoContent();
