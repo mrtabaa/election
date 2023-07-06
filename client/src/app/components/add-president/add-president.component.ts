@@ -19,7 +19,7 @@ export class AddPresidentComponent {
   presidentFg = this.fb.group({ // formGroup
     nationalCodeCtrl: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]], // formControl
     firstNameCtrl: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-    lastNameCtrl: ['', [Validators.required, Validators.minLength(30), Validators.maxLength(30)]],
+    lastNameCtrl: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
     ageCtrl: ['', [Validators.required, Validators.min(18), Validators.max(99)]],
     educationCtrl: ['', Validators.required],
     emailCtrl: ['', [Validators.pattern(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,5})+)$/)]]
@@ -57,7 +57,7 @@ export class AddPresidentComponent {
       lastName: this.LastNameCtrl.value,
       age: this.AgeCtrl.value,
       education: this.EducationCtrl.value,
-      email: this.AgeCtrl.value,
+      email: this.EmailCtrl.value,
     }
 
     this.http.post<President>('http://localhost:5000/api/president/register', president).subscribe(
