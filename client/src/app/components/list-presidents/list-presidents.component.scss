@@ -1,0 +1,15 @@
+button {
+    margin: 4rem;
+}
+
+div {
+    margin: 1rem;
+    display: flex;
+    gap: 1rem;
+
+    ul {
+        list-style-type: none;
+        outline: solid gray 1px;
+        padding: 1rem;
+    }
+}

@@ -1,1 +1,12 @@
-<p>list-presidents works!</p>
+<button (click)="showPresidents()" mat-raised-button color="primary">Show Presidents</button>
+
+<div *ngIf="presidents">
+    <ul *ngFor="let president of presidents">
+        <li>Name: {{president.nationalCode}}</li>
+        <li>First Name: {{president.firstName}}</li>
+        <li>Last Name: {{president.lastName}}</li>
+        <li>Age: {{president.age}}</li>
+        <li>Education: {{president.education}}</li>
+        <li *ngIf="president.email">Email: {{president.email}}</li>
+    </ul>
+</div>
