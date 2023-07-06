@@ -33,13 +33,6 @@ public class VoteController : ControllerBase
             FirstName: userInput.FirstName,
             LastName: userInput.LastName,
             Age: userInput.Age,
-            Address: new Address(
-                HomeNumberName: userInput.Address.HomeNumberName,
-                StreetAddress: userInput.Address.StreetAddress,
-                City: userInput.Address.City,
-                State: userInput.Address.State,
-                ZipCode: userInput.Address.ZipCode
-            ),
             SelectedPresidentId: userInput.SelectedPresidentId
         );
 

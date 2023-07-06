@@ -39,14 +39,7 @@ public class PresidentController : ControllerBase
             LastName: userInput.LastName,
             Age: userInput.Age,
             Education: userInput.Education,
-            Email: userInput.Email,
-            Address: new Address(
-                HomeNumberName: userInput.Address.HomeNumberName,
-                StreetAddress: userInput.Address.StreetAddress,
-                City: userInput.Address.City,
-                State: userInput.Address.State,
-                ZipCode: userInput.Address.ZipCode
-            )
+            Email: userInput.Email
         );
 
         _collection.InsertOne(president);

@@ -10,6 +10,5 @@ public record Vote(
     [MinLength(3), MaxLength(30)] string FirstName,
     [MinLength(3), MaxLength(30)] string LastName,
     [Range(18, 99)] int Age,
-    Address Address,
     string SelectedPresidentId
 );

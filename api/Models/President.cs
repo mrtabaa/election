@@ -11,6 +11,5 @@ public record President(
     [MinLength(3), MaxLength(30)] string LastName,
     [Range(18, 99)] int Age,
     string Education,
-    [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,5})+)$", ErrorMessage ="Bad Email Format.")] string? Email,
-    Address Address
+    [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,5})+)$", ErrorMessage ="Bad Email Format.")] string? Email
 );
