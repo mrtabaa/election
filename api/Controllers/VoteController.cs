@@ -29,11 +29,11 @@ public class VoteController : ControllerBase
 
         Vote vote = new Vote(
             Id: null,
-            NationalCode: userInput.NationalCode,
-            FirstName: userInput.FirstName,
-            LastName: userInput.LastName,
+            NationalCode: userInput.NationalCode.Trim(),
+            FirstName: userInput.FirstName.Trim(),
+            LastName: userInput.LastName.Trim(),
             Age: userInput.Age,
-            SelectedPresidentId: userInput.SelectedPresidentId
+            SelectedPresidentId: userInput.SelectedPresidentId.Trim()
         );
 
         _collection.InsertOne(vote);

@@ -34,12 +34,12 @@ public class PresidentController : ControllerBase
 
         President president = new President(
             Id: null,
-            NationalCode: userInput.NationalCode,
-            FirstName: userInput.FirstName,
-            LastName: userInput.LastName,
+            NationalCode: userInput.NationalCode.Trim(),
+            FirstName: userInput.FirstName.Trim(),
+            LastName: userInput.LastName.Trim(),
             Age: userInput.Age,
-            Education: userInput.Education,
-            Email: userInput.Email
+            Education: userInput.Education.Trim(),
+            Email: userInput.Email?.ToLower().Trim()
         );
 
         _collection.InsertOne(president);
