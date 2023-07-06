@@ -14,10 +14,25 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import { AddPresidentComponent } from './components/add-president/add-president.component';
+import { AddVoteComponent } from './components/add-vote/add-vote.component';
+import { ListVotesComponent } from './components/list-votes/list-votes.component';
+import { ListPresidentsComponent } from './components/list-presidents/list-presidents.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddPresidentComponent,
+    AddVoteComponent,
+    ListVotesComponent,
+    ListPresidentsComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +46,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

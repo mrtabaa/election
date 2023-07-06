@@ -1,0 +1,25 @@
+<form [formGroup]="presidentFg">
+    <h2>Create Account</h2>
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input type="text" formControlName="nameCtrl" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" formControlName="emailCtrl" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" formControlName="passwordCtrl" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input type="number" formControlName="ageCtrl" matInput>
+    </mat-form-field>
+    <mat-checkbox formControlName="isAdminCtrl" [labelPosition]="'before'">
+        Is user Admin?
+    </mat-checkbox>
+
+    <button (click)="registerPresident()" [disabled]="presidentFg.invalid" mat-raised-button color="primary">Register</button>
+</form>
+
