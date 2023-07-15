@@ -2,7 +2,9 @@
     <h2>Register a President</h2>
     <mat-form-field appearance="outline">
         <mat-label>National Code</mat-label>
-        <input type="text" formControlName="nationalCodeCtrl" matInput>
+        <input type="text" formControlName="nationalCodeCtrl" placeholder="Enter you code" matInput>
+        <mat-hint>10 digits only.</mat-hint>
+        <mat-error>This field is required.</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>First name</mat-label>
@@ -15,16 +17,25 @@
     <mat-form-field appearance="outline">
         <mat-label>Age</mat-label>
         <input type="number" formControlName="ageCtrl" matInput>
+        <mat-hint>Enter between 18 to 99.</mat-hint>
+        <mat-error>This field is required</mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field>
         <mat-label>Education</mat-label>
-        <input type="text" formControlName="educationCtrl" matInput>
+        <mat-select formControlName="educationCtrl">
+            <mat-option *ngFor="let educ of educations" [value]="educ">
+                {{educ}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input type="email" formControlName="emailCtrl" matInput>
     </mat-form-field>
 
-    <button (click)="registerPresident()" [disabled]="presidentFg.invalid" mat-raised-button
-        color="primary">Register</button>
+    <button (click)="registerPresident()" [disabled]="presidentFg.invalid" mat-raised-button color="primary">
+        Register
+    </button>
 </form>
+
+<h2>{{presidentFg.value | json}}</h2>

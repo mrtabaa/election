@@ -10,6 +10,8 @@ import { President } from 'src/app/models/president.model';
 export class ListPresidentsComponent {
   presidents: President[] | undefined;
 
+  weekdays: string[] = ["saturday", "sunday", "monday"];
+
   constructor(private http: HttpClient) { }
 
   showPresidents(): void {

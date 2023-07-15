@@ -1,0 +1,6 @@
+<button mat-raised-button (click)="Login()" color="warn">Login</button>
+
+<div *ngIf="globAdmin">
+    <h1>{{globAdmin.email}}</h1>
+    <button routerLink="/add-president">Go to Register President</button>
+</div>

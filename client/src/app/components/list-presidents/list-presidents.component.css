@@ -1,0 +1,15 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  margin: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+div ul {
+  list-style-type: none;
+  outline: solid gray 1px;
+  padding: 1rem;
+}/*# sourceMappingURL=list-presidents.component.css.map */

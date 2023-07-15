@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Admin } from 'src/app/models/admin.model';
 import { President } from 'src/app/models/president.model';
 
 @Component({
@@ -12,8 +13,9 @@ export class AddPresidentComponent {
   presidentRes: President | undefined; // default
   // private userResPrivate: string | undefined;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-  }
+  educations: string[] = ["Diploma", "Bachlor", "Master", "PH.D"];
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   //#region Create Form Group/controler (AbstractControl)
   presidentFg = this.fb.group({ // formGroup
@@ -61,9 +63,9 @@ export class AddPresidentComponent {
     }
 
     this.http.post<President>('http://localhost:5000/api/president/register', president).subscribe(
-      {next: res => {
-        this.presidentRes = res; 
-        console.log(res);
+      {next: response => {
+        this.presidentRes = response; 
+        console.log(this.presidentRes);
       }}
     );
   }

@@ -1,0 +1,19 @@
+<form [formGroup]="taskFg">
+    <h2>Your Tasks</h2>
+    <mat-form-field appearance="outline">
+        <mat-label>Task</mat-label>
+        <input type="text" formControlName="taskCtrl" placeholder="Enter you task" matInput>
+        <mat-hint>Mininum of 3 chars.</mat-hint>
+        <mat-error>This field is required.</mat-error>
+    </mat-form-field>
+    <button (click)="addTask()" mat-mini-fab [disabled]="taskFg.invalid"
+        color="primary"><mat-icon>add</mat-icon></button>
+</form>
+
+<div class="tasks" *ngFor="let task of tasks; let i = index">
+    <button (click)="removeTask(i)" mat-mini-fab color="warn">
+        <mat-icon>delete</mat-icon>
+    </button>
+    <h4> {{task | titlecase}} </h4>
+    <h2>Index: {{i}}</h2>
+</div>
