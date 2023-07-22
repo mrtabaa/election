@@ -68,6 +68,14 @@ export class AddPresidentComponent {
         console.log(this.presidentRes);
       }}
     );
+
+    // reset the form
+    this.presidentFg.reset();
+  }
+
+  // be user ajaze bede har vaght khast form ro clear kone
+  clearForm(): void {
+    this.presidentFg.reset();
   }
   //#endregion
 }

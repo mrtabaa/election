@@ -16,13 +16,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select'; 
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AddPresidentComponent } from './components/add-president/add-president.component';
 import { AddVoteComponent } from './components/add-vote/add-vote.component';
 import { ListVotesComponent } from './components/list-votes/list-votes.component';
 import { ListPresidentsComponent } from './components/list-presidents/list-presidents.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
