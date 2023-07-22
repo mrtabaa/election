@@ -9,14 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Error state matcher
+import { ErrorStateMatcher } from '@angular/material/core';
+import { DefaultErrorStateMatcher } from './default-error-state.matcher';
+
 // Material
-import {MatFormFieldModule} from '@angular/material/form-field'; 
-import {MatInputModule} from '@angular/material/input'; 
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select'; 
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AddPresidentComponent } from './components/add-president/add-president.component';
 import { AddVoteComponent } from './components/add-vote/add-vote.component';
@@ -60,7 +64,9 @@ import { PracticeComponent } from './components/practice/practice.component';
     MatIconModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorStateMatcher, useClass: DefaultErrorStateMatcher }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
