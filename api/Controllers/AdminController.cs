@@ -38,7 +38,7 @@ public class AdminController : ControllerBase
         Admin admin = _collection.Find<Admin>(doc => doc.Email == adminIn.Email && doc.Password == adminIn.Password).FirstOrDefault();
 
         if (admin is null)
-            return BadRequest("Wrong username or password");
+            return Unauthorized("Wrong username or password");
 
         return admin;
     }
