@@ -29,7 +29,7 @@ public class PresidentController : ControllerBase
 
         bool hasDocs = _collection.AsQueryable().Where<President>(p => p.NationalCode == userInput.NationalCode).Any();
 
-        if(hasDocs)
+        if (hasDocs)
             return BadRequest($"A president with National Code {userInput.NationalCode} is already registered.");
 
         President president = new President(
@@ -52,7 +52,7 @@ public class PresidentController : ControllerBase
     {
         List<President> presidents = _collection.Find<President>(new BsonDocument()).ToList();
 
-        if(!presidents.Any())
+        if (!presidents.Any())
             return NoContent();
 
         return presidents;
