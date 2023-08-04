@@ -1,0 +1,43 @@
+<form [formGroup]="registerFg" (ngSubmit)="registerAdmin()">
+    <div class="container">
+        <h2 class="title">Create Admin</h2>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="text" formControlName="emailCtrl" placeholder="Your email" matInput>
+            <mat-hint *ngIf="EmailCtrl.pristine">
+                Enter your email
+            </mat-hint>
+            <mat-error *ngIf="EmailCtrl.hasError('required')">
+                This field is required.
+            </mat-error>
+            <mat-error *ngIf="EmailCtrl.hasError('pattern')">
+                Enter a valid email format.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" formControlName="passwordCtrl" placeholder="Your password" matInput>
+            <mat-hint *ngIf="PasswordCtrl.pristine">
+                Enter your password.
+            </mat-hint>
+            <mat-error *ngIf="PasswordCtrl.hasError('required')">
+                This field is required.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="password" formControlName="confirmPasswordCtrl" placeholder="Password again" matInput>
+            <mat-hint *ngIf="ConfirmPasswordCtrl.pristine">
+                Enter your password again.
+            </mat-hint>
+            <mat-error *ngIf="EmailCtrl.hasError('required')">
+                This field is required.
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary" class="submitBtn">Register</button>
+
+        <!-- <button type="button" mat-raised-button (click)="checkStatus()">check</button> -->
+        <p>{{registerFg.value | json}}</p>
+    </div>
+</form>

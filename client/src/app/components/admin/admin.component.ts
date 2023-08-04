@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Admin } from 'src/app/models/admin.model';
+import { AdminLogin } from 'src/app/models/admin-login.model';
+import { AdminRegister } from 'src/app/models/admin-register.model';
 
 @Component({
   selector: 'app-admin',
@@ -9,22 +10,23 @@ import { Admin } from 'src/app/models/admin.model';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  globAdmin: Admin | undefined;
+  globAdminRegister: AdminRegister | undefined;
+  globAdminLogin: AdminLogin | undefined;
   globError: string | undefined;
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  addAdmin(): void {
-    let admin: Admin = {
+  registerAdmin(): void {
+    let admin: AdminRegister = {
       email: "mozhgan@gmail.com",
       password: "123",
       confirmPassword: "123"
     }
 
-    this.http.post<Admin>('http://localhost:5000/api/admin/register', admin).subscribe(
+    this.http.post<AdminRegister>('http://localhost:5000/api/admin/register', admin).subscribe( 
       {
         next: res => {
-          this.globAdmin = res;
+          this.globAdminRegister = res;
           this.router.navigateByUrl('');
         }
       }
@@ -32,15 +34,15 @@ export class AdminComponent {
   }
 
   loginAdmin(): void {
-    let admin: Admin = {
+    let admin: AdminLogin = {
       email: "x@gmail.com",
       password: "123"
     }
 
-    this.http.post<Admin>('http://localhost:5000/api/admin/login', admin).subscribe(
+    this.http.post<AdminLogin>('http://localhost:5000/api/admin/login', admin).subscribe(
       {
         next: res => {
-          this.globAdmin = res;
+          this.globAdminLogin = res;
           this.router.navigateByUrl('/add-president');
         },
         error: errObj => {

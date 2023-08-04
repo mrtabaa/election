@@ -32,6 +32,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PracticeComponent } from './components/practice/practice.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { PracticeComponent } from './components/practice/practice.component';
     FooterComponent,
     AdminComponent,
     PracticeComponent,
+    RegisterAdminComponent,
   ],
   imports: [
     BrowserModule,

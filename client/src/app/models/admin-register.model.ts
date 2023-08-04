@@ -1,5 +1,4 @@
-export interface Admin {
-    id: string,
+export interface AdminRegister {
     email: string,
     password: string,
     confirmPassword?: string

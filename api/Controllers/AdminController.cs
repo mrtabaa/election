@@ -20,6 +20,9 @@ public class AdminController : ControllerBase
     [HttpPost("register")]
     public ActionResult<Admin> Create(Admin adminIn)
     {
+        if(adminIn.Password != adminIn.ConfirmPassword) 
+            return BadRequest("Passwords entries don't match!");
+
         Admin admin = new Admin(
             Id: null,
             Email: adminIn.Email,

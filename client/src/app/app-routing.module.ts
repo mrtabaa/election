@@ -6,13 +6,13 @@ import { AddPresidentComponent } from './components/add-president/add-president.
 import { AddVoteComponent } from './components/add-vote/add-vote.component';
 import { ListPresidentsComponent } from './components/list-presidents/list-presidents.component';
 import { ListVotesComponent } from './components/list-votes/list-votes.component';
-import { AdminComponent } from './components/admin/admin.component';
 import { PracticeComponent } from './components/practice/practice.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'admin', component: AdminComponent},
+  {path: 'register-admin', component: RegisterAdminComponent},
   {path: 'add-president', component: AddPresidentComponent},
   {path: 'add-vote', component: AddVoteComponent},
   {path: 'list-presidents', component: ListPresidentsComponent},
