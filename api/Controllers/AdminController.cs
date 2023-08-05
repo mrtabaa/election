@@ -25,7 +25,7 @@ public class AdminController : ControllerBase
 
         Admin admin = new Admin(
             Id: null,
-            Email: adminIn.Email,
+            Email: adminIn.Email.ToLower().Trim(),
             Password: adminIn.Password,
             ConfirmPassword: adminIn.ConfirmPassword
         );

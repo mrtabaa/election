@@ -3,7 +3,7 @@
         <h2 class="title">Create Admin</h2>
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input type="text" formControlName="emailCtrl" placeholder="Your email" matInput>
+            <input type="email" formControlName="emailCtrl" placeholder="Your email" matInput>
             <mat-hint *ngIf="EmailCtrl.pristine">
                 Enter your email
             </mat-hint>
@@ -23,9 +23,12 @@
             <mat-error *ngIf="PasswordCtrl.hasError('required')">
                 This field is required.
             </mat-error>
+            <mat-error *ngIf="PasswordCtrl.hasError('minlength')">
+                Min of 8 chars are required.
+            </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
+            <mat-label>Confirm Password</mat-label>
             <input type="password" formControlName="confirmPasswordCtrl" placeholder="Password again" matInput>
             <mat-hint *ngIf="ConfirmPasswordCtrl.pristine">
                 Enter your password again.

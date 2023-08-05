@@ -7,9 +7,9 @@ import { AdminRegister } from '../models/admin-register.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountService {
-  private currentUserSource = new BehaviorSubject<Admin | null>(null);
-  currentUser$ = this.currentUserSource.asObservable();
+export class AdminService {
+  private currentAdminSource = new BehaviorSubject<Admin | null>(null);
+  currentAdmin$ = this.currentAdminSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class AccountService {
       .pipe(
         map(admin => {
           if (admin) {
-            this.currentUserSource.next(admin);
+            this.currentAdminSource.next(admin);
 
             return admin;
           }

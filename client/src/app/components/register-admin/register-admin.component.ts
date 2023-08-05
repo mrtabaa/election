@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminLogin } from 'src/app/models/admin-login.model';
 import { AdminRegister } from 'src/app/models/admin-register.model';
-import { AccountService as AdminService } from 'src/app/services/admin.service';
+import { AdminService as AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-register-admin',
@@ -20,16 +20,18 @@ export class RegisterAdminComponent {
 
   registerFg = this.fb.group({
     emailCtrl: ['', [Validators.required, Validators.pattern(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,5})+)$/)]],
-    passwordCtrl: ['', [Validators.required]],
+    passwordCtrl: ['', [Validators.required, Validators.minLength(8)]],
     confirmPasswordCtrl: ['', [Validators.required]],
-  }); 
+  });
 
   get EmailCtrl(): FormControl {
     return this.registerFg.get('emailCtrl') as FormControl;
   }
+
   get PasswordCtrl(): FormControl {
     return this.registerFg.get('passwordCtrl') as FormControl;
   }
+
   get ConfirmPasswordCtrl(): FormControl {
     return this.registerFg.get('confirmPasswordCtrl') as FormControl;
   }
@@ -46,6 +48,7 @@ export class RegisterAdminComponent {
         next: res => {
           this.globAdminRegister = res;
           this.router.navigateByUrl('');
+          // this.router.navigate(['']);
         }
       }
     )

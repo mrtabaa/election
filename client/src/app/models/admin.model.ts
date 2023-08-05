@@ -1,4 +1,4 @@
-export interface Admin {
+export interface Admin { // response from api
     id: string,
     email: string,
     password: string,
