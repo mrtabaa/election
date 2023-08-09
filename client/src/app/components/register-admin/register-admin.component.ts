@@ -43,23 +43,24 @@ export class RegisterAdminComponent {
       confirmPassword: this.ConfirmPasswordCtrl.value
     }
 
-    this.http.post<AdminRegister>('http://localhost:5000/api/admin/register', adminRegisterInput).subscribe(
+    this.adminService.register(adminRegisterInput).subscribe(
       {
-        next: res => {
-          this.globAdminRegister = res;
+        next: response => {
           this.router.navigateByUrl('');
-          // this.router.navigate(['']);
-        }
+          console.log(response);
+        },
+        error: err => console.log(err)
       }
-    )
+    );
 
-    // this.adminService.register(adminRegisterInput).subscribe(
+    // this.http.post<AdminRegister>('http://localhost:5000/api/admin/register', adminRegisterInput).subscribe(
     //   {
-    //     next: response => {
+    //     next: res => {
+    //       this.globAdminRegister = res;
     //       this.router.navigateByUrl('');
-    //       console.log(response);
-    //     },
+    //       // this.router.navigate(['']);
+    //     }
     //   }
-    // );
+    // )
   }
 }

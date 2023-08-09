@@ -8,11 +8,13 @@ import { ListPresidentsComponent } from './components/list-presidents/list-presi
 import { ListVotesComponent } from './components/list-votes/list-votes.component';
 import { PracticeComponent } from './components/practice/practice.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { ShowAdminComponent } from './components/show-admin/show-admin.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'register-admin', component: RegisterAdminComponent},
+  {path: 'show-admin', component: ShowAdminComponent},
   {path: 'add-president', component: AddPresidentComponent},
   {path: 'add-vote', component: AddVoteComponent},
   {path: 'list-presidents', component: ListPresidentsComponent},

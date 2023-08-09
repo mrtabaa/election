@@ -33,6 +33,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PracticeComponent } from './components/practice/practice.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { ShowAdminComponent } from './components/show-admin/show-admin.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { RegisterAdminComponent } from './components/register-admin/register-adm
     AdminComponent,
     PracticeComponent,
     RegisterAdminComponent,
+    ShowAdminComponent,
   ],
   imports: [
     BrowserModule,
